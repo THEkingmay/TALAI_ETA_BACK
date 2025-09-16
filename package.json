@@ -19,7 +19,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "build": "tsc"
+    "build": "tsc" ,
+    "start": "node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
