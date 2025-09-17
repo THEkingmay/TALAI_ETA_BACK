@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import http from 'http';
 import dotenv from 'dotenv';
-import getWebSocket from './ws/websocket.ts';
-import UserRouter from './route/user.ts'
+import getWebSocket from './ws/websocket.js';
+import UserRouter from './route/user.js'
 
 
 dotenv.config();

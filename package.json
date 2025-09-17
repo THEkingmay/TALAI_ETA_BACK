@@ -5,6 +5,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
     "ws": "^8.18.3"
   },
   "devDependencies": {
@@ -18,8 +19,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "ts-node src/server.ts",
-    "build": "tsc" ,
+    "dev": "tsx src/server.ts",
+    "build": "tsc",
     "start": "node dist/server.js"
   },
   "author": "",
