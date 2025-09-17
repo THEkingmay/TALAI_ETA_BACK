@@ -6,12 +6,12 @@ import url from "url";
 
 dotenv.config();
 
-type userData = {
-  role: string;
-  email: string;
-  iat: number;
-  exp: number;
-};
+// type userData = {
+//   role: string;
+//   email: string;
+//   iat: number;
+//   exp: number;
+// };
 
 interface ExtendWebSocket extends WebSocket {
   // user: userData;
@@ -30,24 +30,8 @@ const getWebSocket = (server: http.Server) => {
   let ALL_USER_LOCATION : UserLocation[]=[] // เก็บตำแหน่งปัจจุบันของ user ทุกคนไว้ในนี้
 
   server.on("upgrade", (req, socket, head) => {
-    // const parsedUrl = url.parse(req.url || "", true);
-    // const token = parsedUrl.query.token as string;
-
-    // if (!token) {
-    //   socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
-    //   socket.destroy();
-    //   return;
-    // }
 
     try {
-        // let decoded : userData;
-        // if(token === process.env.DRIVER_ADMIN_TOKEN){
-        //     decoded = {email : 'driverAdmin@ku.th' , role : 'driver' , exp : 10 , iat : 10}
-        // }else if(token=== process.env.USER_ADMIN_TOKEN){
-        //     decoded = {email : 'userAdmin@ku.th' , role : 'user' , exp : 10 , iat : 10}
-        // }else{
-        //     decoded = jwt.verify(token, process.env.JWT_SECRET as string) as userData;
-        // }
         const parsedUrl = url.parse(req.url || "", true);
       const uid = parsedUrl.query.uid as string;
       wss.handleUpgrade(req, socket, head, (ws) => {
@@ -67,16 +51,6 @@ const getWebSocket = (server: http.Server) => {
     console.log(`✅ Connected`);
     ws.on("message", (message) => {
       try {
-      
-        // const data = JSON.parse(message.toString());
-        // if (ws.user.role === "driver") {
-        //   wss.clients.forEach((clientSocket) => {
-        //     const client = clientSocket as ExtendWebSocket;
-        //     if (client.user && client.user.role !== "driver" && client.readyState === WebSocket.OPEN) {
-        //       client.send(JSON.stringify({type : "success" , data}));
-        //     }
-        //   });
-        // }
 
         // ส่งตำแหน่งทั้งหมดไปแสดงด้านหน้า 
         let data= JSON.parse(message.toString())

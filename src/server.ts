@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/user' , UserRouter)
 
+app.get('/' , (req , res)=>{
+    res.status(200).json({message : "ping server successed"})
+})
 
 const server = http.createServer(app);
 getWebSocket(server)
